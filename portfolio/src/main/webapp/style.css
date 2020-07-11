@@ -1,9 +1,146 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    font-family: "Verdana";
 }
 
-#greeting-container {
-  margin-top: 20px;
+a {
+    text-decoration: none;
+  }
+
+.container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+.giveLetterSpacing {
+    letter-spacing: 5px;
+    font-style: italic;
 }
+
+  .top-wrapper {
+    padding: 90px 0 100px 0;
+    background-color: #000026;
+    color: white;
+    background-size: cover;
+    text-align: left;
+  }
+  
+  .top-wrapper h1 {
+    font-size: 45px;
+    /*letter-spacing: 5px;*/
+    margin-bottom: 10px;
+  }
+  
+  .top-wrapper p {
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+
+  .card-wrapper {
+    padding-bottom: 20px;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+  }
+  
+  .heading {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  
+  .heading h2 {
+    height: 65px;
+    line-height: 65px;
+    width: 100%;
+    color: white;
+    background-color: #000026;
+  }
+  
+  .card {
+    float: left;
+    width: 50%;
+    border: 1px solid #000026;
+    box-shadow: 5px 5px 2px grey;
+    background-color: #dbf3fa;
+  }
+
+  .card2 {
+    padding-left: 5px;
+    float: left;
+    width: 50%;
+    border: 1px solid #000026;
+    box-shadow: 5px 5px 2px grey;
+    background-color: #dbf3fa;
+  }
+  
+  .cardHeader {
+    width: 100%;
+    color: #000;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Verdana';
+  }
+  
+  .text-contents {
+    width: 80%;
+    display: inline-block;
+    margin-top: 18px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000;
+  }
+
+  .btn-wrapper {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    border-right: 1px solid #000026;
+  }
+  
+  .btn:hover {
+    background-color: rgba(245, 252, 255, 0.5);
+  }
+
+  .btnText {
+    padding: 15px 40px;
+    background-color: #f5fcff;
+    cursor: pointer;
+    box-shadow: 0 5px #000026;;
+  }
+  
+  .btnText:active {
+    position: relative;
+    top: 5px;
+    box-shadow: none;
+  }
+
+  .clear {
+    clear: left;
+  }
+
+  footer h2 {
+    font-family: 'Verdana';
+  }
+  
+  footer {
+    background-color: #000026;
+    color: #dbf3fa;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
