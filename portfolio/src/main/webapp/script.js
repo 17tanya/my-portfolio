@@ -92,20 +92,12 @@ function getCommentsData() {
 
     const dataElement = document.getElementById('data-container');
     dataElement.innerHTML = '';
-    dataElement.appendChild(
-        createListElement('Comment ' + comments[0].commentId + ' :' + comments[0].commentData));
-    dataElement.appendChild(
-        createListElement('Comment ' + comments[1].commentId + ' :' + comments[1].commentData));
-    dataElement.appendChild(
-        createListElement('Comment ' + comments[2].commentId + ' :' + comments[2].commentData));
-    dataElement.appendChild(
-        createListElement('Comment ' + comments[3].commentId + ' :' + comments[3].commentData));
     
-    // for(i = 0 ; i < comments.length ; i++){
-    //     dataElement.appendChild(
-    //     createListElement('Comment ' + comments[i].commentId + ' :' + comments[i].commentData));
-    //     Console.log('Comment ' + comments[i].commentId + ' :' + comments[i].commentData);
-    // }
+    for(i = 0 ; i < comments.length ; i++){
+        dataElement.appendChild(
+        createListElement('Comment ' + comments[i].commentId + ' :' + comments[i].commentData));
+        console.log('Comment ' + comments[i].commentId + ' :' + comments[i].commentData);
+    }
     
   });
 }
