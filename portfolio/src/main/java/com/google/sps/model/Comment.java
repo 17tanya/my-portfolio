@@ -3,13 +3,13 @@ package com.google.sps.model;
 public class Comment{
 
     //ID to define each comment
-    private long commentId;
+    private long id;
 
     //Comment data
-    private String commentData;
+    private String text;
 
-    public Comment(long commentId, String commentData){
-        this.commentId = commentId;
-        this.commentData = commentData;
+    public Comment(long id, String text){
+        this.id = id;
+        this.text = text;
     }
 }
