@@ -45,14 +45,6 @@ public class DataServlet extends HttpServlet {
             Comment comment = new Comment(id, "Test Comment "+id);
             comments.add(comment);
         }
-
-      //Creating a MovieData object
-    //   List<String> movieNames = Arrays.asList("Breaking Bad", "Money Hiest", "Dark");
-    //   movieData = new MovieData("Thriller", movieNames);
-      
-      //Adding the MovieData object to the list
-    //   Movies = new ArrayList<>();
-    //   Movies.add(movieData);
   }
 
   private String convertToJsonUsingGson(List<Comment> comments) {
