@@ -95,8 +95,8 @@ function getCommentsData() {
     
     for(i = 0 ; i < comments.length ; i++){
         dataElement.appendChild(
-        createListElement('Comment ' + comments[i].commentId + ' :' + comments[i].commentData));
-        console.log('Comment ' + comments[i].commentId + ' :' + comments[i].commentData);
+        createListElement('Comment ' + comments[i].id + ' :' + comments[i].text));
+        console.log('Comment ' + comments[i].id + ' :' + comments[i].text);
     }
     
   });
