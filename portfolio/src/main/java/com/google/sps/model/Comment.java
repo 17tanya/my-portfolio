@@ -8,8 +8,12 @@ public class Comment{
     //Comment data
     private String text;
 
-    public Comment(long id, String text){
+    //Timestamp
+    private long timeStamp;
+
+    public Comment(long id, String text, long timeStamp){
         this.id = id;
         this.text = text;
+        this.timeStamp = timeStamp;
     }
 }

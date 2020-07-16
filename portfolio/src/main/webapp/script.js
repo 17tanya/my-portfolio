@@ -82,6 +82,7 @@ function addDataToDom(dataFromServer) {
 }
 */
 
+
 /**
  * Fetches movie data from the servers and adds them to the DOM.
  */
@@ -95,7 +96,7 @@ function getCommentsData() {
     
     for(i = 0 ; i < comments.length ; i++){
         dataElement.appendChild(
-        createListElement('Comment ' + comments[i].id + ' :' + comments[i].text));
+        createListElement('Comment :' + comments[i].text));
         console.log('Comment ' + comments[i].id + ' :' + comments[i].text);
     }
     
