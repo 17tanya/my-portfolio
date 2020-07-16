@@ -41,7 +41,7 @@ public class DataServlet extends HttpServlet {
 
   public void generateComments(){
         comments = new ArrayList<>();
-        for(long id = 1 ; id <= 4 ; id++){
+        for(int id = 1 ; id <= 4 ; id++){
             Comment comment = new Comment(id, "Test Comment "+id);
             comments.add(comment);
         }
