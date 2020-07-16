@@ -13,20 +13,51 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-
+import com.google.sps.model.Comment;
+import com.google.gson.Gson;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
-@WebServlet("/data")
+@WebServlet("/comment-data")
 public class DataServlet extends HttpServlet {
+
+    //A list of Comment objects
+    private List<Comment> comments;
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    response.setContentType("text/html;");
-    response.getWriter().println("<h1>Hello Tanya!</h1>");
+    //generate the data to be converted into JSON
+    generateComments();
+    response.setContentType("application/json");
+    response.getWriter().println(convertToJsonUsingGson(comments));
+  }
+
+  public void generateComments(){
+        comments = new ArrayList<>();
+        for(long id = 1 ; id <= 4 ; id++){
+            Comment comment = new Comment(id, "Test Comment "+id);
+            comments.add(comment);
+        }
+
+      //Creating a MovieData object
+    //   List<String> movieNames = Arrays.asList("Breaking Bad", "Money Hiest", "Dark");
+    //   movieData = new MovieData("Thriller", movieNames);
+      
+      //Adding the MovieData object to the list
+    //   Movies = new ArrayList<>();
+    //   Movies.add(movieData);
+  }
+
+  private String convertToJsonUsingGson(List<Comment> comments) {
+    Gson gson = new Gson();
+    String json = gson.toJson(comments);
+    return json;
   }
 }

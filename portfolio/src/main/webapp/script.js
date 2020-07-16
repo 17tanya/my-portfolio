@@ -42,23 +42,25 @@ function randomizePaintingImage() {
     imageContainer.appendChild(imgElement);
 }
 
+
 /**
- * Fetches data from the server and adds it to the DOM.
- */
+
+// Fetches data from the server and adds it to the DOM.
+
 function getDataFromServlet() {
   console.log('Fetching.');
 
   // The fetch() function returns a Promise because the request is asynchronous.
-  const responsePromise = fetch('/data');
+  const responsePromise = fetch('/comment-data');
 
   // When the request is complete, pass the response into handleResponse().
   responsePromise.then(handleResponse);
 }
 
-/**
- * Handles response by converting it to text and passing the result to
- * addQuoteToDom().
- */
+
+// Handles response by converting it to text and passing the result to
+// addQuoteToDom().
+
 function handleResponse(response) {
   console.log('Handling the response.');
 
@@ -71,10 +73,46 @@ function handleResponse(response) {
   textPromise.then(addDataToDom);
 }
 
-/** Adds data to the DOM. */
+// Adds data to the DOM.
 function addDataToDom(dataFromServer) {
   console.log('Adding quote to dom: ' + dataFromServer);
 
   const dataContainer = document.getElementById('data-container');
   dataContainer.innerText = dataFromServer;
+}
+*/
+
+/**
+ * Fetches movie data from the servers and adds them to the DOM.
+ */
+function getCommentsData() {
+  fetch('/comment-data').then(response => response.json()).then((comments) => {
+    // comments is an object, not a string, so we have to
+    // reference its fields to create HTML content
+
+    const dataElement = document.getElementById('data-container');
+    dataElement.innerHTML = '';
+    dataElement.appendChild(
+        createListElement('Comment ' + comments[0].commentId + ' :' + comments[0].commentData));
+    dataElement.appendChild(
+        createListElement('Comment ' + comments[1].commentId + ' :' + comments[1].commentData));
+    dataElement.appendChild(
+        createListElement('Comment ' + comments[2].commentId + ' :' + comments[2].commentData));
+    dataElement.appendChild(
+        createListElement('Comment ' + comments[3].commentId + ' :' + comments[3].commentData));
+    
+    // for(i = 0 ; i < comments.length ; i++){
+    //     dataElement.appendChild(
+    //     createListElement('Comment ' + comments[i].commentId + ' :' + comments[i].commentData));
+    //     Console.log('Comment ' + comments[i].commentId + ' :' + comments[i].commentData);
+    // }
+    
+  });
+}
+
+/** Creates an <li> element containing text. */
+function createListElement(text) {
+  const liElement = document.createElement('li');
+  liElement.innerText = text;
+  return liElement;
 }
