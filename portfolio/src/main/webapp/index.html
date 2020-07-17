@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-    <body>
+    <body onload="getCommentsData()">
 
       <div class="top-wrapper">
         <div class="container">
@@ -93,8 +93,18 @@
         </div>
       </div>
 
-        <button onclick="getCommentsData()">Fetch comments!</button>
-      <div id="data-container"></div>
+
+        <!-- Comments Section -->
+        <form action="/comment-data" method="POST">
+            <p>Enter a comment:</p>
+            <textarea name="comment-input">This is a sample comment.</textarea>
+            <br/><br/>
+
+            <input type="submit" />
+        </form>
+
+        <!-- Previous Comments Section -->
+      <div id="data-container"></div> 
 
       <!--footer-->
       <footer>
