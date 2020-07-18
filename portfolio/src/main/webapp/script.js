@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+
 function randomizeQuillingImage() {
     // The images directory contains 3 quillings images, so generate a random index between
     // 1 and 3.
@@ -91,13 +92,15 @@ function getCommentsData() {
     // comments is an object, not a string, so we have to
     // reference its fields to create HTML content
 
+    console.log("Comments from the Servlet: " + comments);
+
     const dataElement = document.getElementById('data-container');
     dataElement.innerHTML = '';
     
     for(i = 0 ; i < comments.length ; i++){
         dataElement.appendChild(
-        createListElement('Comment :' + comments[i].text));
-        console.log('Comment ' + comments[i].id + ' :' + comments[i].text);
+        createListElement(comments[i].emailId + ' : ' + comments[i].text));
+        console.log('Comment ' + comments[i].emailId + ' : ' + comments[i].text);
     }
     
   });
@@ -108,4 +111,53 @@ function createListElement(text) {
   const liElement = document.createElement('li');
   liElement.innerText = text;
   return liElement;
+}
+
+//Checks if the user is logged in
+async function checkUserStatus(){
+    const loginButton = document.getElementById("login-btn");
+    const commentPostButton = document.getElementById("comment-post-btn");
+    const loginLogoutHeaderButton = document.getElementById("login-logout-header-btn");
+    const commentTextArea = document.getElementById("comment");
+
+    //Get UserInfo from UserServlet
+    fetch('/user').then(response => response.json()).then((userInfo) => {
+        console.log("User Info from Servlet: " + userInfo);
+        console.log("Is user logged in: " + userInfo.isUserLoggedIn);
+
+        //User is logged in
+        if (userInfo.isUserLoggedIn) {
+            //enable the comment box
+            commentTextArea.removeAttribute("disabled");
+
+            logoutUrl = userInfo.logoutURL;
+            loginButton.style.display = "none";
+            commentPostButton.style.display = "inline-block";
+
+            //display Logout link
+            loginLogoutHeaderButton.innerText = "Logout";
+            loginLogoutHeaderButton.setAttribute("href", logoutUrl);
+        }
+        else { //User is not logged in
+            //disable the comment box
+            commentTextArea.setAttribute("disabled", "true");
+
+            loginUrl = userInfo.loginURL;
+            loginButton.style.display = "inline-block";
+            commentPostButton.style.display = "none";
+            
+            //display Login link
+            loginLogoutHeaderButton.innerText = "Login";
+            loginButton.setAttribute("href", loginUrl);
+            loginLogoutHeaderButton.setAttribute("href", loginUrl);
+        }
+    
+    });
+}
+
+//Functions to be executed when the DOM loads
+function onloadFunctions(){
+    console.log("Starting execution of getCommentsData()");
+    getCommentsData();
+    console.log("Completed the execution of getCommentsData()");
 }

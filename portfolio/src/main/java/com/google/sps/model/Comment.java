@@ -9,11 +9,14 @@ public class Comment{
     private String text;
 
     //Timestamp
-    private long timeStamp;
+    private long timestamp;
 
-    public Comment(long id, String text, long timeStamp){
+    private String emailId;
+
+    public Comment(long id, String text, long timestamp, String emailId){
         this.id = id;
         this.text = text;
-        this.timeStamp = timeStamp;
+        this.timestamp = timestamp;
+        this.emailId = emailId;
     }
 }
