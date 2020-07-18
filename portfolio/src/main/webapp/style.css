@@ -11,6 +11,35 @@ a {
     text-decoration: none;
   }
 
+header {
+    height: 65px;
+    width: 100%;
+    background-color: rgba(0, 0, 38, 0.9);/*#000026;*/
+    position :fixed;
+    top: 0;
+    z-index: 10;
+}
+
+.header-right {
+    float: right;
+    margin-right: -25px;
+  }
+  
+  .header-right a {
+    line-height: 65px;
+    padding: 0 25px;
+    color: #dbf3fa;/*#fc94af;*/
+    display: block;
+    float: left;
+    transition: all 0.5s;
+    font-weight: bold;
+    font-family: 'Lucida Console'
+  }
+  
+  .header-right a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
 .container {
     max-width: 1170px;
     width: 100%;
@@ -77,6 +106,15 @@ a {
     border: 1px solid #000026;
     box-shadow: 5px 5px 2px grey;
     background-color: #dbf3fa;
+  }
+
+  .commentCard {
+        padding-left: 5px;
+        float: left;
+        width: 100%;
+        border: 1px solid #000026;
+        box-shadow: 5px 5px 2px grey;
+        background-color: #dbf3fa;
   }
   
   .cardHeader {
